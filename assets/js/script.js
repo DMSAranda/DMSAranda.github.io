@@ -31,25 +31,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const dropdown = document.querySelector(".dropdown");
-    const dropdownContent = document.querySelector(".dropdown-content");
+    const dropbtn = document.querySelector(".dropbtn"); // Seleccionamos el botón "Proyectos"
 
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
         hamburger.classList.toggle("active");
     });
 
-    dropdown.addEventListener("click", (e) => {
+    // Toggle solo en el botón "Proyectos" en móviles
+    dropbtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 480) {
-            e.preventDefault();
+            e.preventDefault(); // Prevenimos la navegación solo en "Proyectos"
             dropdown.classList.toggle("active");
         }
     });
 
+    // Cerrar menú al hacer clic en cualquier enlace, incluyendo los de Proyectos
     navMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
-            if (!link.classList.contains("dropbtn") || window.innerWidth > 480) {
+            if (window.innerWidth <= 480 && !link.classList.contains("dropbtn")) {
                 navMenu.classList.remove("active");
                 hamburger.classList.remove("active");
+                dropdown.classList.remove("active"); // Cierra el submenú también
             }
         });
     });
