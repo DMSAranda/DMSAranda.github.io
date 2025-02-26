@@ -30,30 +30,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
-    const dropdown = document.querySelector(".dropdown");
-    const dropbtn = document.querySelector(".dropbtn"); // Seleccionamos el botón "Proyectos"
+    const dropbtn = document.querySelector(".dropbtn");
+    const logo = document.querySelector(".logo"); // Seleccionamos el logo
 
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
         hamburger.classList.toggle("active");
     });
 
-    // Toggle solo en el botón "Proyectos" en móviles
     dropbtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 480) {
-            e.preventDefault(); // Prevenimos la navegación solo en "Proyectos"
-            dropdown.classList.toggle("active");
+            e.preventDefault();
+            dropbtn.parentElement.classList.toggle("active"); // Usamos parentElement para afectar .dropdown
         }
     });
 
-    // Cerrar menú al hacer clic en cualquier enlace, incluyendo los de Proyectos
     navMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
             if (window.innerWidth <= 480 && !link.classList.contains("dropbtn")) {
                 navMenu.classList.remove("active");
                 hamburger.classList.remove("active");
-                dropdown.classList.remove("active"); // Cierra el submenú también
+                link.parentElement.parentElement.classList.remove("active"); // Cierra el submenú si está abierto
             }
         });
+    });
+
+    // Cerrar menú al hacer clic en el logo en móviles
+    logo.addEventListener("click", () => {
+        if (window.innerWidth <= 480) {
+            navMenu.classList.remove("active");
+            hamburger.classList.remove("active");
+            document.querySelector(".dropdown").classList.remove("active");
+        }
     });
 });
