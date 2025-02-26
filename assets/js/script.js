@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 entry.target.classList.add("visible");
             }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 }); // Cambiado de 0.3 a 0.1
 
     sections.forEach(section => observer.observe(section));
 
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const dropbtn = document.querySelector(".dropbtn");
-    const logo = document.querySelector(".logo"); // Seleccionamos el logo
+    const logo = document.querySelector(".logo");
 
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dropbtn.addEventListener("click", (e) => {
         if (window.innerWidth <= 480) {
             e.preventDefault();
-            dropbtn.parentElement.classList.toggle("active"); // Usamos parentElement para afectar .dropdown
+            dropbtn.parentElement.classList.toggle("active");
         }
     });
 
@@ -50,12 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (window.innerWidth <= 480 && !link.classList.contains("dropbtn")) {
                 navMenu.classList.remove("active");
                 hamburger.classList.remove("active");
-                link.parentElement.parentElement.classList.remove("active"); // Cierra el submenú si está abierto
+                link.parentElement.parentElement.classList.remove("active");
             }
         });
     });
 
-    // Cerrar menú al hacer clic en el logo en móviles
     logo.addEventListener("click", () => {
         if (window.innerWidth <= 480) {
             navMenu.classList.remove("active");
