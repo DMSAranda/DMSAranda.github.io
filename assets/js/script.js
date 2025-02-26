@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Efecto para las tarjetas (card, skill-card, edu-card)
     const cards = document.querySelectorAll(".card, .skill-card, .edu-card");
     cards.forEach(card => {
         card.addEventListener("mousemove", (e) => {
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Animación para las secciones al hacer scroll
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -24,10 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 entry.target.classList.add("visible");
             }
         });
-    }, { threshold: 0.1 }); // Cambiado de 0.3 a 0.1
+    }, { threshold: 0.1 });
 
     sections.forEach(section => observer.observe(section));
 
+    // Menú hamburguesa y dropdown
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
     const dropbtn = document.querySelector(".dropbtn");
