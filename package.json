@@ -1,0 +1,23 @@
+{
+  "name": "modern-portfolio",
+  "version": "1.0.0",
+  "description": "A modern portfolio website showcasing projects, courses, and studies.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process can be defined here'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "modern",
+    "responsive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
