@@ -664,10 +664,5 @@ body {
         height: 8px;
         width: 8px;
     }
-    .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas por fila */
-        gap: 0.8rem;
-        justify-content: center; /* Centra el grid completo horizontalmente */
-    }
+    
 }
