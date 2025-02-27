@@ -6,16 +6,80 @@
     <title>Freya - David Muñoz del Sastre</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/laser.png">
 </head>
 <body>
+    <header class="header">
+        <a href="../index.html" class="logo">David Muñoz del Sastre</a>
+        <nav class="nav">
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#cursos">Capacitaciones</a></li>
+                <li><a href="../index.html#estudios">Educación</a></li>
+                <li class="dropdown">
+                    <a href="../index.html#proyectos" class="dropbtn">Proyectos</a>
+                    <div class="dropdown-content">
+                        <a href="./hotelbediax.html">HotelBediaX</a>
+                        <a href="./products.html">Gestor de Productos</a>
+                        <a href="./portfolio.html">Gestor de Proyectos Online</a>
+                        <a href="./usersapp.html">Gestor de Usuarios</a>
+                        <a href="./cartapp.html">Tienda con Carrito</a>
+                        <a href="./xkcd.html">Visor de Comics XKCD</a>
+                        <a href="./freya.html">Freya</a>
+                        <a href="./qbosq.html">Qbosq</a>
+                        <a href="./afar.html">AFAR</a>
+                    </div>
+                </li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section class="section project-detail">
-        <h2>Visor de Comics XKCD</h2>
+        <h2>Freya</h2>
         <div class="project-content">
-            <img src="../assets/images/freya-screenshot.jpg" alt="Visor de Comics XKCD Screenshot" class="project-screenshot">
-            <p>Una aplicación para gestionar usuarios y sus partes de trabajo con autenticación segura mediante Spring Boot con JWT en el backend y un frontend dinámico en React. Desarrollada con tecnologías modernas para ofrecer una experiencia fluida y eficiente.</p>
-            <p><strong>Tecnologías:</strong> Java, Android Studio</p>
-            <a href="https://github.com/DMSAranda/freya" target="_blank" class="project-link">Ver en GitHub</a>
+            <div class="project-image-container">
+                <img src="../assets/images/freya.jpg" alt="Freya Screenshot" class="project-screenshot" onclick="openModal(this.src)">
+            </div>
+            <p>Aplicación web para la gestión de usuarios y partes de trabajo, con autenticación segura mediante JWT y un diseño moderno y funcional.</p>
+            <div class="skills-container tech-grid">
+                <div class="skill-card"><i class="fas fa-leaf"></i><span>Spring Boot</span></div>
+                <div class="skill-card"><i class="fab fa-react"></i><span>React</span></div>
+                <div class="skill-card"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+                <div class="skill-card"><i class="fas fa-database"></i><span>MySQL</span></div>
+            </div>
+            <a href="https://github.com/username/freya" class="cta-button github-button" target="_blank">
+                <i class="fab fa-github"></i> Ver en GitHub
+            </a>
         </div>
     </section>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">×</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="../assets/js/script.js" defer></script>
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
