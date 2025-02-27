@@ -402,9 +402,9 @@ body {
     padding: 1rem 1.5rem;
     transition: all 0.4s ease;
     white-space: nowrap;
-    max-width: 200px;
+    max-width: 200px; /* Tamaño original en escritorio */
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start; /* Restauramos alineación original: ícono y texto a la izquierda */
 }
 
 .skill-card i {
@@ -443,12 +443,11 @@ body {
 }
 
 .tech-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     margin: 0 auto;
-    max-width: 800px;
 }
 
 /* Media Queries - Tablets (hasta 768px) */
@@ -508,10 +507,12 @@ body {
         font-size: 2rem;
     }
     .skill-card {
-        max-width: 160px;
+        max-width: 160px; /* Tamaño original en tablets */
     }
     .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1rem;
         justify-content: center;
     }
 }
@@ -566,6 +567,7 @@ body {
         flex-direction: row;
         justify-content: space-between;
         padding: 0.8rem;
+        height: auto;
     }
     .hero {
         min-height: auto;
@@ -641,14 +643,14 @@ body {
         padding: 5px;
     }
     .section {
-        padding: 3rem 1rem;
+        padding: calc(4.5rem + 1rem) 1rem 3rem;
     }
     .section h2 {
         font-family: 'Orbitron', sans-serif !important;
         font-size: 1.5rem;
     }
     .skill-card {
-        max-width: 140px;
+        max-width: 140px; /* Tamaño original en móviles */
         padding: 0.8rem 1rem;
         font-size: 0.9rem;
     }
@@ -663,9 +665,9 @@ body {
         width: 8px;
     }
     .tech-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas por fila */
         gap: 0.8rem;
-        max-width: 100%;
+        justify-content: center; /* Centra el grid completo horizontalmente */
     }
 }
